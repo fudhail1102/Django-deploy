@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Here are your users:</h1>
+    {% if user_details %}
+        <ol>
+            {% for user in user_details %}
+                <li>User Info
+                    <ul>
+                        <li>First Name: {{ user.first_name }}</li>
+                        <li>Last Name: {{ user.last_name }}</li>
+                        <li>Email: {{ user.email }}</li>
+                    </ul>
+                </li>
+            {% endfor %}
+        </ol>
+    {% endif %}
+</body>
+
+</html>

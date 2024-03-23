@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+{% load extra_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+    <title>Intro App</title>
+</head>
+
+<body>
+    <h1>Welcome to intro app</h1>
+    <h3><em>{{template_tag|add_excl|title}}</em></h3>
+
+    <div class="template_table">
+        {% if access_records %}
+            <table>
+                <thead>
+                    <th>Site Name</th>
+                    <th>Date Created</th>
+                </thead>
+                {% for acc_record in access_records %}
+                    <tr>
+                        <td>{{ acc_record.name }}</td>
+                        <td>{{ acc_record.date }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No access records found!!</p>
+        {% endif %}
+    </div>
+   <a href="{% url 'intro_app:webpage_form' %}">Click to proceed to Forms Page</a><br>
+   <a href="{% url 'admin:index' %}">Click to proceed to Admin Page</a>
+</body>
+
+</html>
